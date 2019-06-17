@@ -8,30 +8,30 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
-  <link rel="stylesheet" href="//unpkg.com/docsify@4.9.4/lib/themes/vue.css">
-  <link rel="stylesheet" href="https://unpkg.com/vuep@0.8.1/dist/vuep.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/codemirror@5.45.0/theme/neo.css">
-  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">-->
+  <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
+  <!--<link rel="stylesheet" href="https://unpkg.com/vuep@0.8.1/dist/vuep.min.css">-->
+  <!--<link rel="stylesheet" href="https://unpkg.com/codemirror@5.45.0/theme/neo.css">-->
+  <!--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
 </head>
 <body>
 <div id="app"></div>
 
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-<script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--<script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>-->
+<!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
 <script>
-  mermaid.initialize({
-    startOnLoad: false,
-    flowchart: {
-      htmlLabels: true
-    },
-    theme: null,
-    themeCSS: `.node rect, .node circle, .node ellipse, .node polygon, rect.actor { fill: #42b983; stroke-width: 0; }
-        .label { color: #ffffff; }
-        text.actor { fill: #ffffff; }
-        .edgeLabel { background-color: #fff; color: #333333; }`
-  });
+  // mermaid.initialize({
+  //   startOnLoad: false,
+  //   flowchart: {
+  //     htmlLabels: true
+  //   },
+  //   theme: null,
+  //   themeCSS: `.node rect, .node circle, .node ellipse, .node polygon, rect.actor { fill: #42b983; stroke-width: 0; }
+  //       .label { color: #ffffff; }
+  //       text.actor { fill: #ffffff; }
+  //       .edgeLabel { background-color: #fff; color: #333333; }`
+  // });
 
   window.$docsify = {
     coverpage: true,
@@ -48,69 +48,69 @@
       successText: '复制成功!'
     },
     executeScript: true,
-    markdown: {
-      renderer: {
-        code: function (code, lang) {
-          if (lang === 'mermaid') {
-            const chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'
-            let pwd = ''
-            for (let i = 0; i < 10; i++) {
-              pwd += chars.charAt(Math.floor(Math.random() * 59))
-            }
-            const id = '_' + pwd
-            let mermaidHtml = mermaid.render(id, code)
-            let div = document.createElement('div')
-            div.innerHTML = mermaidHtml
-            let styleNodes = div.querySelectorAll('style')
-
-            for (let item of styleNodes) {
-              let parent = item.parentNode
-              const newItem = item.cloneNode(true)
-              newItem.setAttribute('data-svg-id', id)
-              document.body.appendChild(newItem)
-              parent.removeChild(item)
-            }
-            mermaidHtml = div.outerHTML
-
-            return (
-              '<div class="mermaid">' + mermaidHtml + '</div>'
-            )
-          }
-          return this.origin.code.apply(this, arguments);
-        }
-      }
-    },
+    // markdown: {
+    //   renderer: {
+    //     code: function (code, lang) {
+    //       if (lang === 'mermaid') {
+    //         const chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'
+    //         let pwd = ''
+    //         for (let i = 0; i < 10; i++) {
+    //           pwd += chars.charAt(Math.floor(Math.random() * 59))
+    //         }
+    //         const id = '_' + pwd
+    //         let mermaidHtml = mermaid.render(id, code)
+    //         let div = document.createElement('div')
+    //         div.innerHTML = mermaidHtml
+    //         let styleNodes = div.querySelectorAll('style')
+    //
+    //         for (let item of styleNodes) {
+    //           let parent = item.parentNode
+    //           const newItem = item.cloneNode(true)
+    //           newItem.setAttribute('data-svg-id', id)
+    //           document.body.appendChild(newItem)
+    //           parent.removeChild(item)
+    //         }
+    //         mermaidHtml = div.outerHTML
+    //
+    //         return (
+    //           '<div class="mermaid">' + mermaidHtml + '</div>'
+    //         )
+    //       }
+    //       return this.origin.code.apply(this, arguments);
+    //     }
+    //   }
+    // },
     plugins: [
-      function (hook, vm) {
-
-        hook.init(function() {
-
-        })
-
-        hook.beforeEach(function(content) {
-          // 每次开始解析 Markdown 内容时调用
-          const styleTags = document.body.querySelectorAll('style')
-          for (let styleNode of styleTags) {
-            if (styleNode.getAttribute('data-svg-id')) {
-              const p = styleNode.parentNode
-              p.removeChild(styleNode)
-            }
-          }
-          return content
-        })
-      }
+      // function (hook, vm) {
+      //
+      //   hook.init(function() {
+      //
+      //   })
+      //
+      //   hook.beforeEach(function(content) {
+      //     // 每次开始解析 Markdown 内容时调用
+      //     const styleTags = document.body.querySelectorAll('style')
+      //     for (let styleNode of styleTags) {
+      //       if (styleNode.getAttribute('data-svg-id')) {
+      //         const p = styleNode.parentNode
+      //         p.removeChild(styleNode)
+      //       }
+      //     }
+      //     return content
+      //   })
+      // }
     ]
   }
 
 </script>
-<script src="https://unpkg.com/vuep@0.8.1/dist/vuep.min.js"></script>
+<!--<script src="https://unpkg.com/vuep@0.8.1/dist/vuep.min.js"></script>-->
 <script src="https://unpkg.com/docsify/lib/docsify.min.js"></script>
 <script src="https://unpkg.com/docsify/lib/plugins/search.js"></script>
 <script src="https://unpkg.com/docsify-copy-code"></script>
 <script src="https://unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
 <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
-<script src="https://unpkg.com/babel-plugin-transform-vue-jsx"></script>
+<!--<script src="https://unpkg.com/babel-plugin-transform-vue-jsx"></script>-->
 
 </body>
 </html>
