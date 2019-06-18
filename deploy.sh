@@ -5,9 +5,6 @@ projectPath=$(cd `dirname $0`; pwd)
 echo "==> go projectPath"
 echo $projectPath
 
-echo "==> update from remote"
-git pull
-
 echo "==> install"
 npm install
 
