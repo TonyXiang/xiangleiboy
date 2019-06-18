@@ -1,6 +1,6 @@
 # 生活在21世纪
 
-> 心之所向，素履以往!
+> 心之所向，素履以往!!
 
 <div style="width:300px; padding:20px 0;position: absolute; bottom: 0; left: 50%;transform: translateX(-50%);">
     <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010502002466" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
