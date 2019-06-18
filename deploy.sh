@@ -3,7 +3,7 @@
 projectPath=$(cd `dirname $0`; pwd)
 
 echo "==> go projectPath"
-echo $projectPath
+cd $projectPath
 
 echo "==> install"
 npm install
